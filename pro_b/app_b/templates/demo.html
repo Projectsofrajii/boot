@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>{% block title %} Rest Framework{% endblock title %}</title>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" ><!-- used to centralize the content -->
+</head>
+<body>
+<div class="jumbotron text-center">
+</div>
+
+<div class="container">
+  <div class="btn-group">
+      <button type="button" class="btn-group-vertical" onclick='document.getElementById("d").innerHTML = "processing for get..!"'>GET</button>
+      <button type="button" class="btn-group-vertical" onclick='document.getElementById("de").innerHTML = "processing for post..!"'>POST</button>
+      <button type="button" class="btn-group-vertical" onclick='document.getElementById("dem").innerHTML = "processing for update..!"'>PUT</button>
+      <button type="button" class="btn-group-vertical" onclick='document.getElementById("demo").innerHTML = "processing for delete..!"'>DELETE</button>
+      <p id="d"></p>
+      <p id="de"></p>
+      <p id="dem"></p>
+      <p id="demo"></p>
+  </div>
+</div>
+{% block content %}  {% endblock content %}
+</body>
+</html>

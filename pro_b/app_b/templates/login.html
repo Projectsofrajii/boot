@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+  <title>Bootstrap page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'api/style.css' %}"><!-- rel="stylesheet" used only for links-->
+</head>
+
+<body>
+<header>
+<div class="row">
+<div class="col-sm-6">
+                <nav><!-- navigation link tag -->
+                    <div class="col-sm-6">
+                        {% if request.user.is_authenticated %}
+                            <a href="/admin/logout/?next=/">Logout</a> <!-- anchor+href( links )-->
+                        {% else %}
+                            <a href="/admin/login/?next=/admin/">Login Form</a>
+                        {% endif %}
+                    </div>
+                    <div class="col-sm-6">
+                        {% if request.user.is_staff %}
+                          <a href="/admin/">Admin</a>
+                        {% endif %}
+                    </div>
+                </nav>
+</div>
+</div>
+</header>
+              {% block content %}{% endblock %}
+</body>
+</html>

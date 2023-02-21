@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+  <title>Boot page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!--<link rel="stylesheet" type="text/html" href="{% templates 'api/crud.html' %}">-->
+
+  <!--<link rel="stylesheet" type="text/css" href="{% static 'api/style.css' %}"> rel="stylesheet" used only for links-->
+</head><body><header>
+<div class="container">
+<div class="jumbotron text-center">
+<div class="center-block">
+        <nav><!-- navigation link tag -->
+            <div class="btn btn-default btn-lg">
+                <div class="col-md-6">
+                    {% if request.user.is_authenticated %}
+                        <a href="/admin/logout/?next=k-p/">Logout</a> <!-- anchor+href( links )-->
+                    {% else %}
+                        <a href="/admin/login/?next=/admin/">Login Form</a>
+                    {% endif %}
+                </div>
+
+            </div>
+        </nav>
+</div></div></div>
+</header>
+              {% block content %}{% endblock %}
+</body></html>
